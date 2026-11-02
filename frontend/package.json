@@ -1,0 +1,31 @@
+{
+  "name": "vcontent",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3010",
+    "build": "next build",
+    "start": "next start -p 3010"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.8",
+    "@mantine/dropzone": "^7.17.8",
+    "@mantine/hooks": "^7.17.8",
+    "@mantine/notifications": "^7.17.8",
+    "@tabler/icons-react": "^3.34.0",
+    "dayjs": "^1.11.13",
+    "framer-motion": "^12.23.12",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.17.2",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "postcss": "^8.5.6",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "typescript": "^5.9.2"
+  }
+}
