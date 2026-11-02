@@ -1,6 +1,8 @@
 import uuid
 
+import jwt
 from fastapi import APIRouter, Depends, File, Query, Request, Response, UploadFile
+from fastapi.responses import StreamingResponse
 from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session, joinedload, selectinload
 
@@ -24,7 +26,7 @@ from app.schemas import (
     ProfileIn,
     ResetIn,
 )
-from app.security import create_access_token
+from app.security import create_access_token, decode_file_token
 from app.services.auth import (
     authenticate,
     change_password,
@@ -75,7 +77,7 @@ from app.services.contents import (
 from app.services.contents import get_content
 from app.services.dashboard import admin_dashboard, client_dashboard
 from app.services.serializers import content_dict
-from app.storage import get_storage
+from app.storage import DriveStorage, get_storage, storage_backend_name
 
 router = APIRouter(prefix="/api")
 
@@ -125,6 +127,22 @@ def health(db: Session = Depends(get_db)):
     except Exception:
         storage_ok = False
     return {"status": "ok", "database": "ok", "storage": "ok" if storage_ok else "unavailable", "version": settings.app_version}
+
+
+@router.get("/files/{token}")
+def stream_file(token: str, request: Request):
+    try:
+        payload = decode_file_token(token)
+    except jwt.InvalidTokenError:
+        raise AppError("O arquivo expirou. Atualize a página.", 401) from None
+    storage = get_storage()
+    if not isinstance(storage, DriveStorage):
+        raise AppError("Arquivo indisponível.", 404)
+    try:
+        status, mime, headers, body = storage.open_stream(str(payload["fid"]), request.headers.get("range"))
+    except FileNotFoundError:
+        raise AppError("Arquivo não encontrado.", 404) from None
+    return StreamingResponse(body, status_code=status, media_type=mime, headers=headers)
 
 
 @router.post("/auth/login")
@@ -596,6 +614,8 @@ def system(user: User = Depends(require_admin), db: Session = Depends(get_db)):
         "environment": settings.app_env,
         "database": "ok",
         "storage": "ok" if storage_ok else "unavailable",
+        "storage_backend": storage_backend_name(),
+        "drive_account_email": settings.drive_account_email,
         "external_notifications": ["in_app"],
         "prepared_channels": ["email", "whatsapp"],
     }

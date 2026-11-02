@@ -32,7 +32,7 @@ export function PageHeader({
 
 export function StatCard({ label, value }: { label: string; value: number | string }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid #eceaf2", borderRadius: 20, padding: 18 }}>
+    <div style={{ background: "#fff", border: "1px solid #e7ddd2", borderRadius: 20, padding: 18 }}>
       <Text size="sm" c="dimmed">
         {label}
       </Text>
@@ -43,7 +43,7 @@ export function StatCard({ label, value }: { label: string; value: number | stri
 
 export function EmptyState({ title, text, action }: { title: string; text: string; action?: ReactNode }) {
   return (
-    <Stack align="flex-start" gap="xs" p="xl" style={{ background: "#fff", border: "1px dashed #ddd7ea", borderRadius: 20 }}>
+    <Stack align="flex-start" gap="xs" p="xl" style={{ background: "#fff", border: "1px dashed #e0d3c6", borderRadius: 20 }}>
       <Title order={4}>{title}</Title>
       <Text c="dimmed" maw={460}>
         {text}

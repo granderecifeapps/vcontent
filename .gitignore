@@ -6,6 +6,7 @@ __pycache__/
 *.pyc
 .env
 .env.local
+.neon
 frontend/node_modules/
 frontend/.next/
 frontend/.vercel/

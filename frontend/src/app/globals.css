@@ -1,9 +1,11 @@
 :root {
-  --ink: #111114;
-  --paper: #f8f7fb;
-  --violet: #7c4dff;
-  --muted: #6f6b78;
-  --line: #eceaf2;
+  --ink: #2c211c;
+  --paper: #f6f1ea;
+  --wine: #7a3040;
+  --gold: #c6a15b;
+  --muted: #7a6e66;
+  --line: #e7ddd2;
+  --wash: #f8efea;
 }
 
 * { box-sizing: border-box; }
@@ -22,7 +24,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--violet);
+  color: var(--gold);
   font-weight: 650;
 }
 
@@ -35,25 +37,8 @@ a { color: inherit; text-decoration: none; }
   line-height: 1;
 }
 
+.portal-nav a,
 .shell-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  color: #d8d0ea;
-  font-size: 14px;
-  font-weight: 550;
-}
-
-.shell-nav a[data-active="true"] {
-  background: rgba(124, 77, 255, 0.22);
-  color: #ffffff;
-}
-
-.shell-nav a:hover { color: #ffffff; }
-
-.portal-nav a {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -64,10 +49,14 @@ a { color: inherit; text-decoration: none; }
   font-weight: 550;
 }
 
-.portal-nav a[data-active="true"] {
-  background: #ede7ff;
-  color: #4a22c4;
+.portal-nav a[data-active="true"],
+.shell-nav a[data-active="true"] {
+  background: var(--wash);
+  color: var(--wine);
 }
+
+.portal-nav a:hover,
+.shell-nav a:hover { color: var(--ink); }
 
 .timeline-card {
   border: 1px solid var(--line);
@@ -98,7 +87,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .cal-day.is-out { opacity: 0.45; }
-.cal-day.is-today { outline: 2px solid #b9a1ff; }
+.cal-day.is-today { outline: 2px solid var(--gold); }
 
 .pill {
   display: block;
@@ -116,9 +105,9 @@ a { color: inherit; text-decoration: none; }
   text-overflow: ellipsis;
 }
 
-.pill.tiktok { background: #16141c; color: #f7f3ff; }
-.pill.instagram { background: #ede7ff; color: #4a22c4; }
-.pill.waiting { outline: 2px solid #f08c00; }
+.pill.tiktok { background: var(--wine); color: var(--paper); }
+.pill.instagram { background: #f3e6c8; color: #6a4a1e; }
+.pill.waiting { outline: 2px solid var(--gold); }
 
 .mobile-tabs {
   display: flex;
@@ -138,9 +127,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .mobile-tabs a[data-active="true"] {
-  background: #16141c;
-  color: #fff;
-  border-color: #16141c;
+  background: var(--wine);
+  color: var(--paper);
+  border-color: var(--wine);
 }
 
 @media (max-width: 48em) {

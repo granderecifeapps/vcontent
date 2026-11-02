@@ -39,6 +39,19 @@ def create_access_token(user_id: str, role: str) -> str:
     return jwt.encode(payload, settings.secret_key, algorithm="HS256")
 
 
+def create_file_token(file_id: str, hours: int = 6) -> str:
+    now = utcnow()
+    payload = {"fid": file_id, "type": "file", "iat": int(now.timestamp()), "exp": int((now + timedelta(hours=hours)).timestamp())}
+    return jwt.encode(payload, settings.secret_key, algorithm="HS256")
+
+
+def decode_file_token(token: str) -> dict:
+    payload = jwt.decode(token, settings.secret_key, algorithms=["HS256"])
+    if payload.get("type") != "file" or not payload.get("fid"):
+        raise jwt.InvalidTokenError("tipo inválido")
+    return payload
+
+
 def decode_access_token(token: str) -> dict:
     payload = jwt.decode(token, settings.secret_key, algorithms=["HS256"])
     if payload.get("type") != "access":

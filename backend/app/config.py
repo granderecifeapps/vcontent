@@ -30,6 +30,12 @@ class Settings(BaseSettings):
     max_video_mb: int = 200
     rate_limit_enabled: bool = True
     blob_read_write_token: str = ""
+    public_api_url: str = ""
+    google_client_id: str = ""
+    google_client_secret: str = ""
+    google_refresh_token: str = ""
+    drive_folder_id: str = ""
+    drive_account_email: str = ""
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

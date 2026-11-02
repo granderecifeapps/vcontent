@@ -42,7 +42,7 @@ export default function LoginPage() {
           <Title order={1} mt={48} c="white" style={{ fontSize: "4rem", letterSpacing: "-0.06em", lineHeight: 0.95 }}>
             O conteúdo, no ritmo da aprovação.
           </Title>
-          <Text c="#d8d0ea" mt="md" size="lg">
+          <Text c="#f6f1ea" mt="md" size="lg">
             Clientes, peças, calendário e o sim ou o ajuste — sem planilha e sem grupo perdido.
           </Text>
         </div>
@@ -70,7 +70,7 @@ export default function LoginPage() {
       </section>
       <style>{`
         @media (min-width: 900px) {
-          .auth-side { display: flex !important; align-items: flex-end; padding: 64px; background: #16141c; }
+          .auth-side { display: flex !important; align-items: flex-end; padding: 64px; background: #7a3040; }
         }
         @media (max-width: 899px) {
           .auth-grid { grid-template-columns: 1fr !important; }

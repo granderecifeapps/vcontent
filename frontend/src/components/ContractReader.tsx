@@ -45,7 +45,7 @@ export function ContractReader({
       </Text>
       {error ? <Text c="red">{error}</Text> : null}
       {src ? (
-        <iframe title={filename || "Contrato"} src={src} style={{ width: "100%", height: "72vh", border: "1px solid #eceaf2", borderRadius: 16, background: "#fff" }} />
+        <iframe title={filename || "Contrato"} src={src} style={{ width: "100%", height: "72vh", border: "1px solid #e7ddd2", borderRadius: 16, background: "#fff" }} />
       ) : error ? null : (
         <LoadBox />
       )}

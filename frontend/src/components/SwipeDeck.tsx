@@ -63,7 +63,7 @@ export function SwipeDeck({
   return (
     <div className="swipe-stage">
       {items[1] ? (
-        <div style={{ position: "absolute", inset: 18, borderRadius: 28, background: "#fff", border: "1px solid #eceaf2", transform: "scale(0.96) translateY(10px)" }} />
+        <div style={{ position: "absolute", inset: 18, borderRadius: 28, background: "#fff", border: "1px solid #e7ddd2", transform: "scale(0.96) translateY(10px)" }} />
       ) : null}
       <motion.article
         key={current.id}
@@ -72,13 +72,13 @@ export function SwipeDeck({
         dragListener={false}
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.9}
-        style={{ x, rotate, position: "absolute", inset: 0, borderRadius: 28, background: "#fff", border: "1px solid #eceaf2", boxShadow: "0 20px 50px rgba(17,17,20,0.08)", overflow: "hidden", display: "flex", flexDirection: "column" }}
+        style={{ x, rotate, position: "absolute", inset: 0, borderRadius: 28, background: "#fff", border: "1px solid #e7ddd2", boxShadow: "0 20px 50px rgba(44,33,28,0.08)", overflow: "hidden", display: "flex", flexDirection: "column" }}
         onDragEnd={(_, info) => {
           if (info.offset.x > 110 || info.velocity.x > 700) void approve();
           else if (info.offset.x < -110 || info.velocity.x < -700) askChanges();
         }}
       >
-        <div style={{ position: "relative", flex: 1, minHeight: 240, background: "#111114" }} onPointerDown={(event) => controls.start(event)}>
+        <div style={{ position: "relative", flex: 1, minHeight: 240, background: "#2c211c" }} onPointerDown={(event) => controls.start(event)}>
           <motion.div style={{ opacity: approveOpacity, position: "absolute", top: 16, left: 16, zIndex: 2, background: "#16794c", color: "#fff", borderRadius: 999, padding: "6px 12px", fontWeight: 700 }}>
             Aprovar
           </motion.div>

@@ -330,7 +330,7 @@ function MediaCard({
   onDown?: () => void;
 }) {
   return (
-    <div style={{ border: "1px solid #eceaf2", borderRadius: 16, overflow: "hidden", background: "#fff" }}>
+    <div style={{ border: "1px solid #e7ddd2", borderRadius: 16, overflow: "hidden", background: "#fff" }}>
       {mime.startsWith("video/") ? (
         <video src={url ?? undefined} controls style={{ width: "100%", maxHeight: 220, background: "#111" }} />
       ) : (

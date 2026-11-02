@@ -74,9 +74,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       navbar={{ width: 248, breakpoint: "sm", collapsed: { mobile: !opened } }}
       padding="lg"
       styles={{
-        header: { background: "rgba(248,247,251,0.9)", borderColor: "#eceaf2", backdropFilter: "blur(16px)" },
-        navbar: { background: "#16141c", borderColor: "#16141c", color: "#f7f3ff" },
-        main: { background: "#f8f7fb" },
+        header: { background: "rgba(246,241,234,0.92)", borderColor: "#e7ddd2", backdropFilter: "blur(16px)" },
+        navbar: { background: "#fff", borderColor: "#e7ddd2" },
+        main: { background: "#f6f1ea" },
       }}
     >
       <AppShell.Header>
@@ -113,8 +113,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        <Logo light />
-        <nav className="shell-nav" style={{ marginTop: 28, display: "grid", gap: 4 }}>
+        <Logo />
+        <nav className="portal-nav" style={{ marginTop: 28, display: "grid", gap: 4 }}>
           {links.map((link) => {
             const Icon = link.icon;
             const active = link.href === "/admin" ? pathname === "/admin" : pathname.startsWith(link.href);

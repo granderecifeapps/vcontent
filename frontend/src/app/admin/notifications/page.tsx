@@ -45,7 +45,7 @@ export default function NotificationsPage() {
       />
       <Stack>
         {page.items.map((item) => (
-          <Group key={item.id} justify="space-between" align="flex-start" p="md" style={{ background: item.read_at ? "#fff" : "#f7f3ff", border: "1px solid #eceaf2", borderRadius: 16 }}>
+          <Group key={item.id} justify="space-between" align="flex-start" p="md" style={{ background: item.read_at ? "#fff" : "#f8efea", border: "1px solid #e7ddd2", borderRadius: 16 }}>
             <div>
               <Text fw={600}>{item.title}</Text>
               <Text size="sm">{item.body}</Text>

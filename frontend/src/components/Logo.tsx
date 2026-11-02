@@ -6,7 +6,7 @@ export function Logo({ light = false }: { light?: boolean }) {
           width: 36,
           height: 36,
           borderRadius: 12,
-          background: light ? "#7c4dff" : "#7c4dff",
+          background: light ? "#c6a15b" : "#7a3040",
           color: "#fff",
           display: "grid",
           placeItems: "center",
@@ -18,10 +18,10 @@ export function Logo({ light = false }: { light?: boolean }) {
         V
       </span>
       <span>
-        <strong style={{ display: "block", fontFamily: "var(--font-outfit), Outfit, sans-serif", letterSpacing: "-0.04em", color: light ? "#f7f3ff" : "#111114" }}>
+        <strong style={{ display: "block", fontFamily: "var(--font-outfit), Outfit, sans-serif", letterSpacing: "-0.04em", color: light ? "#f6f1ea" : "#2c211c" }}>
           VContent
         </strong>
-        <small style={{ color: light ? "#b9a1ff" : "#6f6b78", letterSpacing: "0.12em", textTransform: "uppercase", fontSize: 10 }}>
+        <small style={{ color: light ? "#e4c98a" : "#7a6e66", letterSpacing: "0.12em", textTransform: "uppercase", fontSize: 10 }}>
           Conteúdo
         </small>
       </span>

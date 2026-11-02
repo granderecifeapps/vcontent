@@ -9,7 +9,7 @@ import { fail, ok } from "@/lib/feedback";
 import { formatWhen } from "@/lib/labels";
 
 type Audit = { id: string; action: string; entity_type: string; actor_name: string | null; created_at: string; ip: string | null };
-type System = { version: string; environment: string; database: string; storage: string; prepared_channels: string[] };
+type System = { version: string; environment: string; database: string; storage: string; storage_backend?: string; drive_account_email?: string; prepared_channels: string[] };
 
 export default function SettingsPage() {
   const { user, refresh } = useAuth();
@@ -72,9 +72,16 @@ export default function SettingsPage() {
         </Stack>
       </SimpleGrid>
       {system ? (
-        <Text c="dimmed">
-          Versão {system.version} · banco {system.database} · storage {system.storage} · canais preparados: {system.prepared_channels.join(", ")}
-        </Text>
+        <Stack gap={4}>
+          <Text c="dimmed">
+            Versão {system.version} · banco {system.database} · storage {system.storage} · canais preparados: {system.prepared_channels.join(", ")}
+          </Text>
+          <Text c="dimmed">
+            {system.storage_backend === "google_drive"
+              ? `Imagens e vídeos ficam no Google Drive${system.drive_account_email ? ` de ${system.drive_account_email}` : ""}.`
+              : "Imagens e vídeos ainda usam o armazenamento atual. O Google Drive entra no lugar assim que a conta for autorizada."}
+          </Text>
+        </Stack>
       ) : null}
       <Title order={4}>Auditoria</Title>
       <Table.ScrollContainer minWidth={640}>

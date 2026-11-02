@@ -61,8 +61,8 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <AppShell header={{ height: 64 }} navbar={{ width: 240, breakpoint: "sm", collapsed: { mobile: true } }} padding={immersive ? "sm" : "lg"} styles={{ main: { background: "#f8f7fb" }, navbar: { borderColor: "#eceaf2" } }}>
-      <AppShell.Header style={{ background: "rgba(248,247,251,0.92)", backdropFilter: "blur(16px)", borderColor: "#eceaf2" }}>
+    <AppShell header={{ height: 64 }} navbar={{ width: 240, breakpoint: "sm", collapsed: { mobile: true } }} padding={immersive ? "sm" : "lg"} styles={{ main: { background: "#f6f1ea" }, navbar: { background: "#fff", borderColor: "#e7ddd2" } }}>
+      <AppShell.Header style={{ background: "rgba(246,241,234,0.92)", backdropFilter: "blur(16px)", borderColor: "#e7ddd2" }}>
         <Group h="100%" px="md" justify="space-between">
           <Logo />
           <Group>
